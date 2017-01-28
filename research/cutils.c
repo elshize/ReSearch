@@ -32,7 +32,7 @@ void log_process(off_t processed_bytes, off_t total_bytes)
 }
 
 static PyObject *
-rsutils_flip_most_significant_bits(PyObject *self, PyObject *args)
+cutils_flip_most_significant_bits(PyObject *self, PyObject *args)
 {
     PyObject *input_stream, *output_stream;
 
@@ -72,14 +72,14 @@ rsutils_flip_most_significant_bits(PyObject *self, PyObject *args)
 }
 
 static PyMethodDef SpamMethods[] = {
-    {"flip_most_significant_bits",  (PyCFunction)rsutils_flip_most_significant_bits, METH_VARARGS,
+    {"flip_most_significant_bits",  (PyCFunction)cutils_flip_most_significant_bits, METH_VARARGS,
     "Flip most significant bits in each byte reading from a file and write to another."},
     {NULL, NULL, 0, NULL}
 };
 
-static struct PyModuleDef rsutilsmodule = {
+static struct PyModuleDef cutilsmodule = {
    PyModuleDef_HEAD_INIT,
-   "rsutils",   /* name of module */
+   "cutils",   /* name of module */
    NULL, /* module documentation, may be NULL */
    -1,       /* size of per-interpreter state of the module,
                 or -1 if the module keeps state in global variables. */
@@ -87,7 +87,7 @@ static struct PyModuleDef rsutilsmodule = {
 };
 
 PyMODINIT_FUNC
-PyInit_rsutils(void)
+PyInit_cutils(void)
 {
-    return PyModule_Create(&rsutilsmodule);
+    return PyModule_Create(&cutilsmodule);
 }

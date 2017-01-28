@@ -1,6 +1,6 @@
 from setuptools import setup, Extension
 
-rsutils = Extension('rsutils', sources=['research/rsutils.c'])
+rsutils = Extension('research.cutils', sources=['research/cutils.c'])
 
 setup(name='ReSearch',
       version='1.0',

@@ -7,3 +7,4 @@ research/coding/__pycache__/
 research/index/__pycache__/
 venv/
 ReSearch.egg-info/
+*.so
