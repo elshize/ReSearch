@@ -2,7 +2,7 @@ import unittest
 import shutil
 import tempfile
 import os
-import research.cutils
+import research_c_utils
 
 
 class CUtilsTest(unittest.TestCase):
@@ -20,7 +20,7 @@ class CUtilsTest(unittest.TestCase):
         output = os.path.join(self.test_dir, "output")
         with open(input, 'bw') as f:
             f.write(b'\x00\x80\x08\x88')
-        research.cutils.flip_most_significant_bits(open(input, 'br'), open(output, 'bw'))
+        research_c_utils.flip_most_significant_bits(open(input, 'br'), open(output, 'bw'))
         with open(output, 'br') as f:
             self.assertEqual(f.read(1), b'\x80')
             self.assertEqual(f.read(1), b'\x00')

@@ -32,7 +32,7 @@ void log_process(off_t processed_bytes, off_t total_bytes)
 }
 
 static PyObject *
-cutils_flip_most_significant_bits(PyObject *self, PyObject *args)
+research_c_utils_flip_most_significant_bits(PyObject *self, PyObject *args)
 {
     PyObject *input_stream, *output_stream;
 
@@ -72,14 +72,14 @@ cutils_flip_most_significant_bits(PyObject *self, PyObject *args)
 }
 
 static PyMethodDef SpamMethods[] = {
-    {"flip_most_significant_bits",  (PyCFunction)cutils_flip_most_significant_bits, METH_VARARGS,
+    {"flip_most_significant_bits",  (PyCFunction)research_c_utils_flip_most_significant_bits, METH_VARARGS,
     "Flip most significant bits in each byte reading from a file and write to another."},
     {NULL, NULL, 0, NULL}
 };
 
-static struct PyModuleDef cutilsmodule = {
+static struct PyModuleDef research_c_utilsmodule = {
    PyModuleDef_HEAD_INIT,
-   "cutils",   /* name of module */
+   "research_c_utils",   /* name of module */
    NULL, /* module documentation, may be NULL */
    -1,       /* size of per-interpreter state of the module,
                 or -1 if the module keeps state in global variables. */
@@ -87,7 +87,7 @@ static struct PyModuleDef cutilsmodule = {
 };
 
 PyMODINIT_FUNC
-PyInit_cutils(void)
+PyInit_research_c_utils(void)
 {
-    return PyModule_Create(&cutilsmodule);
+    return PyModule_Create(&research_c_utilsmodule);
 }

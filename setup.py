@@ -1,6 +1,6 @@
 from setuptools import setup, Extension
 
-cutils = Extension('research.cutils', sources=['research/cutils.c'])
+research_c_utils = Extension('research_c_utils', sources=['research/research_c_utils.c'])
 
 setup(name='ReSearch',
       version='1.0',
@@ -8,7 +8,7 @@ setup(name='ReSearch',
       download_url='https://github.com/west-tandon/ReSearch',
       license='MIT',
       packages=['research', 'research.coding', 'research.index'],
-      ext_modules=[cutils],
+      ext_modules=[research_c_utils],
       install_requires=[
           'argparse',
           'importlib'
