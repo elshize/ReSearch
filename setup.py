@@ -7,7 +7,7 @@ setup(name='ReSearch',
       description='Research tools for Text Search and Information Retrieval',
       download_url='https://github.com/west-tandon/ReSearch',
       license='MIT',
-      packages=['research', 'research.coding', 'research.index', 'research.utils'],
+      packages=['research', 'research.coding', 'research.index'],
       ext_modules=[cutils],
       install_requires=[
           'argparse',
