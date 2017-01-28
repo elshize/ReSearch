@@ -1,4 +1,4 @@
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
 rsutils = Extension('rsutils', sources=['research/rsutils.c'])
 
