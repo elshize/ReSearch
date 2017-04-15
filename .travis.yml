@@ -2,7 +2,6 @@ language: python
 python:
   - "3.6"
 install:
-  - python setup.py install
   - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -N -O miniconda.sh
   - bash ./miniconda.sh -b -f -p $(VENV_DIR)
   - export PATH=/home/travis/miniconda3/bin:$PATH
