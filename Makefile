@@ -9,7 +9,10 @@ FINDD=rsfindd
 QPQT=qpqt
 
 build: *
-	virtualenv -p /usr/bin/python3 $(VENV_DIR)
+	wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -N -O miniconda.sh
+	bash ./miniconda.sh -b -f -p $(VENV_DIR)
+	$(VENV_DIR)/bin/conda update --yes conda
+	$(VENV_DIR)/bin/conda install --yes nltk numpy pandas Cython llvmlite numba
 	$(VENV_DIR)/bin/python setup.py install
 
 .PHONY: install
