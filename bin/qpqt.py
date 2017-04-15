@@ -26,7 +26,7 @@ def filter_rows(df, conditions):
 parser = argparse.ArgumentParser(description='Retrieve data from parquet file')
 parser.add_argument('input', type=str, help='Parquet input file')
 parser.add_argument('--columns', '-c', nargs='+', help='Columns to select')
-parser.add_argument('--where', '-w', nargs='+', help='Filtering conditions')
+parser.add_argument('--where', '-w', nargs='+', help='Filtering conditions in format: column=value (no spaces)')
 args = parser.parse_args()
 
 pf = ParquetFile(args.input)
