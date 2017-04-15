@@ -1,6 +1,5 @@
 language: python
 python:
-  - "3.5"
   - "3.6"
 install:
   - python setup.py install
@@ -10,3 +9,4 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libsnappy-dev
   - pip install cython
+  - pip install --only-binary=numpy,numba,pandas numpy numba pandas
