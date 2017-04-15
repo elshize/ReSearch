@@ -6,7 +6,7 @@ install:
   - bash ./miniconda.sh -b -f
   - export PATH=/home/travis/miniconda3/bin:$PATH
   - conda update --yes conda
-  - conda install --yes nltk numpy pandas cython llvmlite numba
+  - conda install --yes nltk numpy pandas Cython llvmlite numba
   - python setup.py install
 script:
   - python setup.py test
