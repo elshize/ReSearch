@@ -16,7 +16,7 @@ setup(name='ReSearch',
           'numpy',
           'bitstring',
           'pandas',
+          'Cython',
           'fastparquet',
-          'python-snappy',
-          'Cython'
+          'python-snappy'
       ])
