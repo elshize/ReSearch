@@ -9,16 +9,14 @@ FINDD=rsfindd
 QPQT=qpqt
 
 build: *
-	wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -N -O miniconda.sh
-	bash ./miniconda.sh -b -f -p $(VENV_DIR)
-	$(VENV_DIR)/bin/conda update --yes conda
-	$(VENV_DIR)/bin/conda install --yes nltk numpy pandas Cython llvmlite numba
-	$(VENV_DIR)/bin/python setup.py install
+	rm -rf ./env
+	conda create --yes -p ./env python=3.6 nltk numpy pandas cython llvmlite numba thriftpy=0.3.9
+	./env/bin/python setup.py install
 
 .PHONY: install
 install:
 	mkdir -p $(INSTALL_DIR)
-	cp -r $(VENV_DIR)/* $(INSTALL_DIR)
+	cp -r env/* $(INSTALL_DIR)
 	cp bin/* $(INSTALL_DIR)/bin
 	# rspeek
 	echo "$(INSTALL_DIR)/bin/python $(INSTALL_DIR)/bin/peek.py \$$@" > $(BIN)/$(PEEK)
@@ -43,4 +41,4 @@ uninstall:
 	
 .PHONY: clean
 clean:
-	rm -rf venv build ReSearch.egg-info
+	rm -rf env build ReSearch.egg-info
