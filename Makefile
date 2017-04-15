@@ -6,6 +6,7 @@ PEEK=rspeek
 FLIP=rsflip
 READD=rsreadd
 FINDD=rsfindd
+QPQT=qpqt
 
 build: *
 	virtualenv -p /usr/bin/python3 $(VENV_DIR)
@@ -28,11 +29,14 @@ install:
 	# rsreadd
 	echo "$(INSTALL_DIR)/bin/python $(INSTALL_DIR)/bin/findd.py \$$@" > $(BIN)/$(FINDD)
 	chmod a+x $(BIN)/$(FINDD)
+	# qpqt
+	echo "$(INSTALL_DIR)/bin/python $(INSTALL_DIR)/bin/qpqt.py \$$@" > $(BIN)/$(QPQT)
+	chmod a+x $(BIN)/$(QPQT)
 
 .PHONY: uninstall
 uninstall:
 	rm -rf $(INSTALL_DIR)
-	rm -f $(BIN)/$(PEEK) $(BIN)/$(FLIP) $(BIN)/$(READD)
+	rm -f $(BIN)/$(PEEK) $(BIN)/$(FLIP) $(BIN)/$(READD) $(BIN)/$(FINDD) $(BIN)/$(QPQT)
 	
 .PHONY: clean
 clean:
