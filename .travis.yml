@@ -8,4 +8,4 @@ script:
   - python setup.py test
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libsnappy1-dev
+  - sudo apt-get install -y libsnappy-dev
