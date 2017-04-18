@@ -29,7 +29,7 @@ def save_file(df, name, file_format):
 
 parser = argparse.ArgumentParser(description='Query a structured file using SQL syntax')
 parser.add_argument('input', nargs='+', help='Input files')
-parser.add_argument('--sql', '-q', help='SQL query')
+parser.add_argument('--sql', '-q', nargs=1, type=str, help='SQL query')
 parser.add_argument('--output', '-o', help='Output file')
 parser.add_argument('--input-formats', '-f', nargs='*', help='A list of input file formats')
 parser.add_argument('--output-format', '-F', help='The output file format', default="parquet")
