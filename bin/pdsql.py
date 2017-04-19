@@ -2,8 +2,13 @@ import argparse
 
 import fastparquet as fp
 import pandas as pd
+import numpy as np
 from pandasql import sqldf
 
+
+def type_mapping(s):
+    [column, type] = s.split('=')
+    return column, type
 
 def pysqldf(q):
     return sqldf(q, globals())
@@ -33,6 +38,7 @@ parser.add_argument('--sql', '-q', type=str, help='SQL query')
 parser.add_argument('--output', '-o', help='Output file')
 parser.add_argument('--input-formats', '-f', nargs='*', help='A list of input file formats')
 parser.add_argument('--output-format', '-F', help='The output file format', default="parquet")
+parser.add_argument('--dtypes', '-d', nargs='*', type=type_mapping, help='Types of column you want to explicitly define')
 args = parser.parse_args()
 
 formats = args.input_formats
@@ -51,6 +57,10 @@ if args.sql is None:
     r = df
 else:
     r = pysqldf(args.sql)
+
+if args.dtypes is not None:
+    for column, type in args.dtypes:
+        r[column] = r[column].astype(getattr(np, type))
 
 if args.output is None:
     print(r)
