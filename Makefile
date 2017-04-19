@@ -35,7 +35,8 @@ install:
 	echo "$(INSTALL_DIR)/bin/python $(INSTALL_DIR)/bin/qpqt.py \$$@" > $(BIN)/$(QPQT)
 	chmod a+x $(BIN)/$(QPQT)
 	# pdsql
-	echo "$(INSTALL_DIR)/bin/python $(INSTALL_DIR)/bin/pdsql.py \$$@" > $(BIN)/$(PDSQL)
+	echo "#!$(INSTALL_DIR)/bin/python" > $(BIN)/$(PDSQL)
+	cat $(INSTALL_DIR)/bin/pdsql.py >> $(BIN)/$(PDSQL)
 	chmod a+x $(BIN)/$(PDSQL)
 
 .PHONY: uninstall
